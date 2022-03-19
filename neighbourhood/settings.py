@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from ctypes import cast
 import os
 from pathlib import Path
 from decouple import config
@@ -22,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7jr2!hv@6wgzx3qg+t=17ntm3s33^#&h2ms3-0=+i8%1@eh6!h'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool) 
 
 ALLOWED_HOSTS = []
 
@@ -145,9 +146,10 @@ MESSAGE_TAGS = {
 }
 
 
-#SMTP CONFIGURATIONS
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'trevin.livele@student.moringaschool.com'
-EMAIL_HOST_PASSWORD = 'Anyanje@2003'
-EMAIL_USE_TLS = True
+
+# SMTP configuration
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
