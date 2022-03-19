@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import redirect, render,get_object_or_404
 from accounts.models import Account
 from .forms import RegistrationForm,UserForm,UserProfileForm
@@ -202,7 +203,11 @@ def resetpassword(request):
 
 
 def profile(request):
-    return render(request, 'accounts/profile.html')
+    userprofile = UserProfile.objects.get(user_id=request.user.id)
+    context = {
+        'userprofile' : userprofile,
+    }
+    return render(request, 'accounts/profile.html', context)
 
 
 @login_required(login_url='login')
