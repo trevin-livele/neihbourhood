@@ -31,6 +31,17 @@ def register(request):
             user.phone_number = phone_number
             user.save()
 
+
+            # Create a user profile
+            profile = UserProfile()
+            profile.user_id = user.id
+            profile.profile_picture = 'default/default-user.png'
+            profile.save()
+
+
+
+
+
             #USER ACTIVATION
             current_site = get_current_site(request)
             mail_subject = 'please activate your account'
@@ -190,3 +201,5 @@ def resetpassword(request):
 
 
 
+def profile(request):
+    return render(request, 'accounts/profile.html')
