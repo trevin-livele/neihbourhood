@@ -1,4 +1,3 @@
-from multiprocessing import context
 from django.shortcuts import redirect, render,get_object_or_404
 from accounts.models import Account
 from .forms import RegistrationForm,UserForm,UserProfileForm

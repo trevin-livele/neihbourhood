@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    # path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    # path('secret/', admin.site.urls),
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
     path('accounts/',include('accounts.urls')),
