@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app_main .models import Post
+from app_main .models import Contact, Post
 
 def home(request):
     posts = Post.objects.all()
@@ -12,6 +12,9 @@ def home(request):
 
     }
     return render(request,'home.html', context)
+
+
+
 
 
 

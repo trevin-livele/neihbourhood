@@ -71,7 +71,7 @@ class Contact(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=50, blank=True, null=True)
     phone = models.CharField(max_length=50)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE,blank=True,null=True)
     neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
