@@ -14,3 +14,18 @@ class Post(models.Model):
 
     def __str__(self):
         return self.description
+
+
+
+# location model
+class Location(models.Model):
+    name = models.CharField(max_length=30)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    # save location
+    def save_location(self):
+        self.save()
+
+    def __str__(self):
+        return self.name
