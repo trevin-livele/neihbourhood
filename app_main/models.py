@@ -1,6 +1,7 @@
 from django.db import models
 from accounts.models import Account
 from category.models import Category
+
 # Create your models here.
 class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
@@ -8,7 +9,6 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images')
     title = models.CharField(max_length=20 ,unique=True, null=True)
     description = models.CharField(max_length=200)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE,blank=True,null=True)
     date_posted  =  models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
@@ -23,7 +23,11 @@ class Location(models.Model):
     name = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
+    name = models.CharField(max_length=70)
+    county = models.CharField(max_length=80)
+    description = models.TextField(null=True, blank=True)
+    people = models.ManyToManyField(Account, blank=True, null=True, related_name='people')
+  
     # save location
     def save_location(self):
         self.save()
@@ -42,6 +46,7 @@ class NeighbourHood(models.Model):
     user = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    neighbour = models.ManyToManyField(Account, related_name='trev', null=True,blank=True)
 
 
 
@@ -58,12 +63,13 @@ class Business(models.Model):
     email = models.EmailField(max_length=50, blank=True, null=True)
     phone = models.CharField(max_length=50, blank=True)
     user = models.ForeignKey(Account, on_delete=models.CASCADE,blank=True,null=True)
+    location = models.ForeignKey('Location', on_delete=models.CASCADE, related_name='location', blank=True,null=True)
     description = models.CharField(max_length=200,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.bs_description
+        return self.name
 
 
 # contact class model
@@ -79,3 +85,16 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+
+
+
+
+
+
+
+
+
+   

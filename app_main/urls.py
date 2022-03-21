@@ -9,6 +9,9 @@ urlpatterns = [
     path('posts/', views.posts, name='posts'),
     path('createbuisiness/', views.createbuisiness, name='createbuisiness'),
     path('buisiness/', views.buisiness, name='buisiness'),
+    path('addalert/', views.addalert, name='addalert'),
+    path('alerts/', views.alerts, name='alerts'),
+
 
 
 

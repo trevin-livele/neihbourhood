@@ -74,3 +74,15 @@ def buisiness(request):
 
     }
     return render(request,'buisiness.html', context)
+
+
+def addalert(request):
+    return render(request,'addalert.html')
+
+
+def alerts(request):
+    return render(request,'alerts.html')
+
+
+
+
