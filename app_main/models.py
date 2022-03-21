@@ -64,6 +64,7 @@ class Business(models.Model):
     phone = models.CharField(max_length=50, blank=True)
     user = models.ForeignKey(Account, on_delete=models.CASCADE,blank=True,null=True)
     location = models.ForeignKey('Location', on_delete=models.CASCADE, related_name='location', blank=True,null=True)
+    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE,blank=True,null=True)
     description = models.CharField(max_length=200,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

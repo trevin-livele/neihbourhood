@@ -1,8 +1,9 @@
-from unicodedata import name
 from django.shortcuts import render, redirect
 from .forms import ImageForm,ContactForm,BuisinessForm
 from .models import *
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url = 'login')
 def createpost(request):
     """Process images uploaded by users"""
     if request.method == 'POST':
@@ -13,7 +14,7 @@ def createpost(request):
     form = ImageForm()
     return render(request, 'create_post.html', {'form': form})
 
-
+@login_required(login_url = 'login')
 def createcontact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST, request.GET)
@@ -23,7 +24,7 @@ def createcontact(request):
     form = ContactForm()
     return render(request, 'create_contact.html', {'form': form})
 
-
+@login_required(login_url = 'login')
 def contacts(request):
     contacts = Contact.objects.all()
     title = Contact.objects.all()
@@ -36,7 +37,7 @@ def contacts(request):
     }
     return render(request,'contacts.html', context)
 
-
+@login_required(login_url = 'login')
 def posts(request):
     posts = Post.objects.all()
     title = Post.objects.all()
@@ -51,7 +52,7 @@ def posts(request):
 
 
 
-
+@login_required(login_url = 'login')
 def createbuisiness(request):
     if request.method == 'POST':
         form = BuisinessForm(request.POST, request.GET)
@@ -62,24 +63,35 @@ def createbuisiness(request):
     return render(request, 'create_buisiness.html', {'form': form})
 
 
-
+@login_required(login_url = 'login')
 def buisiness(request):
     buisiness = Business.objects.all()
     name = Business.objects.all()
+    email = Business.objects.all()
     description = Business.objects.all()
+    phone      = Business.objects.all()
+    user       = Business.objects.all()
+    location   = Business.objects.all()
+
     context = {
         'buisiness'    : buisiness,
         'name'         : name,
         'description'  : description,
+        'name'       : name,         
+        'email'      :  email,
+        'phone'       :  phone,
+        'user'        :   user,
+        'location'     : location,
+}
 
-    }
+
     return render(request,'buisiness.html', context)
 
-
+@login_required(login_url = 'login')
 def addalert(request):
     return render(request,'addalert.html')
 
-
+@login_required(login_url = 'login')
 def alerts(request):
     return render(request,'alerts.html')
 

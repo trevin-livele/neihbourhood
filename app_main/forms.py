@@ -22,10 +22,12 @@ class ContactForm(forms.ModelForm):
 class BuisinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        fields = ['name','email','description']
+        fields = ['name','email','description','phone','location','neighbourhood']
 
 
 
 
 
+    
+    
     

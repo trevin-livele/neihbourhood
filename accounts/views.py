@@ -125,6 +125,7 @@ def edit_profile(request):
         'user_form': user_form,
         'profile_form': profile_form,
         'userprofile': userprofile,
+        
     }
     return render(request, 'accounts/edit_profile.html', context)
 
