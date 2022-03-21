@@ -6,6 +6,12 @@ urlpatterns = [
     path('createpost/', views.createpost, name='createpost'),
     path('createcontact/', views.createcontact, name='createcontact'),
     path('contacts/', views.contacts, name='contacts'),
+    path('posts/', views.posts, name='posts'),
+    path('createbuisiness/', views.createbuisiness, name='createbuisiness'),
+    path('buisiness/', views.buisiness, name='buisiness'),
+
+
+
 
 
 ]

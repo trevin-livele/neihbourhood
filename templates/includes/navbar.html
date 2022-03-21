@@ -6,9 +6,9 @@
             <li><a href="{% url 'login' %}">Login</a></li>
             {% else %}
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="./posts.html">Posts</a></li>
+            <li><a href="{% url 'posts' %}">Posts</a></li>
             <li><a href="./alerts.html">Alerts</a></li>
-            <li><a href="./buisinesses.html">Buisiness</a></li>
+            <li><a href="{% url 'buisiness' %}">Buisiness</a></li>
             <li><a href="{% url 'contacts' %}">Contacts</a></li>
             <li><a href="{% url 'profile' %}">Profile</a></li>
             <li><a href="{% url 'profile' %}">Welcome {{user.username}}</a></li>

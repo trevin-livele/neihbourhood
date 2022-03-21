@@ -8,6 +8,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images')
     title = models.CharField(max_length=20 ,unique=True, null=True)
     description = models.CharField(max_length=200)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE,blank=True,null=True)
     date_posted  =  models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
@@ -38,7 +39,7 @@ class NeighbourHood(models.Model):
     name = models.CharField(max_length=50)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     occupants_count = models.IntegerField(default=0)
-    admin = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -54,16 +55,15 @@ class NeighbourHood(models.Model):
 # business class model
 class Business(models.Model):
     name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
-    description = models.TextField(blank=True, null=True)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
-    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=50, blank=True, null=True)
+    phone = models.CharField(max_length=50, blank=True)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE,blank=True,null=True)
+    description = models.CharField(max_length=200,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-
     def __str__(self):
-        return self.name
+        return self.bs_description
 
 
 # contact class model
@@ -72,7 +72,7 @@ class Contact(models.Model):
     email = models.EmailField(max_length=50, blank=True, null=True)
     phone = models.CharField(max_length=50)
     user = models.ForeignKey(Account, on_delete=models.CASCADE,blank=True,null=True)
-    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, default=1)
+    neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
