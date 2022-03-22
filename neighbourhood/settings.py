@@ -14,6 +14,8 @@ import os
 import django_heroku
 from pathlib import Path
 from decouple import config
+from email.policy import default
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

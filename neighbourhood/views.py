@@ -1,7 +1,10 @@
 from unicodedata import category
 from django.shortcuts import render
 from app_main .models import Contact, Post
+from django.contrib.auth.decorators import login_required
 
+
+@login_required(login_url = 'login')
 def home(request):
     posts = Post.objects.all()
     title = Post.objects.all()
