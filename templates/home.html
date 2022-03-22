@@ -7,29 +7,12 @@
 
 <div class="top">
     <h1> Top Posts on Neighbourhood</h1> 
-</div>
-
-
-
-
-
-
+    <h6>go to profile tab to update info(contact,buisiness,posts)</h6>
+</div>            
 <div class="container px-0 py-4">
     <div class="pp-category-filter">
-        <h4 class="h5"> Filter by category🤞</h4>
-
         <div class="row">
             <div class="col-sm-12">
-
-                <a class="btn btn-outline-primary pp-filter-button" type="submit" href="#" data-filter="all">All</a>
-
-                <a class="btn btn-outline-primary" href="#" data-filter="all">posts</a>
-                <a class="btn btn-outline-primary" href="#" data-filter="all">posts</a>
-                <a class="btn btn-outline-primary" href="#" data-filter="all">posts</a>
-                <a class="btn btn-outline-primary" href="#" data-filter="all">posts</a>
-
-
-
                 <form action="#" method="GET">
                     <div class="input-group">
                         <div class="form-outline">
@@ -39,12 +22,8 @@
                     </div>
                 </form>
             </div>
-
         </div>
-
-
     </div>
-
 </div>
 
 
@@ -78,8 +57,7 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ post.created_at|date }}</li>
-                    <li class="list-group-item">posted by: {{ post.user.username }}</li>
-                    <li class="list-group-item">Neighbourhood {{post.neighbourhood}}</li>
+                    <li class="list-group-item">posted by: {{user.username }}</li>
                     <li class="list-group-item">category🤞 {{post.category}}</li>
 
                 </ul>

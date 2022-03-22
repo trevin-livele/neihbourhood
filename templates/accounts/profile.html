@@ -28,8 +28,8 @@
                                     Contact</button></a>
                             <a href="{% url 'createbuisiness' %}"><button type="button" class="btn btn-outline-primary me-1 flex-grow-1">Add
                                     Buisiness</button></a>
-                            <a href="{% url 'addalert' %}"><button type="button" class="btn btn-outline-primary me-1 flex-grow-1">Add
-                                        Alert</button></a>
+                            <!-- <a href="{% url 'addalert' %}"><button type="button" class="btn btn-outline-primary me-1 flex-grow-1">Add
+                                        Alert</button></a> -->
                         </div>
                     </div>
                 </div>
@@ -98,30 +98,5 @@
 
 
 
-<div class="container px-0 py-4">
-    <h4 class="h5"> Filter by category🤞</h4>
 
-    <div class="row">
-        <div class="col-sm-12">
-
-            <a class="btn btn-outline-primary pp-filter-button" type="submit" href="#" data-filter="all">All</a>
-
-            <a class="btn btn-outline-primary" href="#" data-filter="all">posts</a>
-            <a class="btn btn-outline-primary" href="#" data-filter="all">posts</a>
-            <a class="btn btn-outline-primary" href="#" data-filter="all">posts</a>
-            <a class="btn btn-outline-primary" href="#" data-filter="all">posts</a>
-
-            <br>
-
-            <form action="#" method="GET">
-                <div class="input-group">
-                    <div class="form-outline">
-                        <input type="text" id="form1" class="form-control" placeholder="search" name="keyword" />
-                    </div>
-                    <button type="submit" class="btn btn-outline-primary" href="#" data-filter="all">Search</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 {% endblock %}

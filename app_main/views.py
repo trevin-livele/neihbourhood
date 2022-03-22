@@ -70,7 +70,6 @@ def buisiness(request):
     email = Business.objects.all()
     description = Business.objects.all()
     phone      = Business.objects.all()
-    user       = Business.objects.all()
     location   = Business.objects.all()
 
     context = {
@@ -80,7 +79,6 @@ def buisiness(request):
         'name'       : name,         
         'email'      :  email,
         'phone'       :  phone,
-        'user'        :   user,
         'location'     : location,
 }
 
